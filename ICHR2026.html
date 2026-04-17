@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovations Chrétiennes pour une Haïti Restaurée</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-deep: #00209F;
+      --blue-mid: #1a3a7a;
+      --blue-light: #2e5cb8;
+      --red-haiti: #D21034;
+      --red-dark: #a80d2a;
+      --gold: #c9a84c;
+      --gold-light: #e8d48b;
+      --cream: #faf8f3;
+      --warm-white: #fff9f0;
+      --text-dark: #1a1a2e;
+      --text-mid: #3a3a4a;
+      --text-light: #6a6a7a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(0, 32, 159, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 0 20px;
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      color: white; font-size: 1.1rem; font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .nav-links { display: flex; gap: 8px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; padding: 8px 14px;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover { color: white; background: rgba(255,255,255,0.12); }
+    .nav-cta {
+      background: var(--red-haiti) !important;
+      color: white !important; font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: var(--red-dark) !important; }
+
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      padding: 8px;
+    }
+    .mobile-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: white; margin: 5px 0; transition: 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #000c3a 0%, var(--blue-deep) 40%, #001050 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 20px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(ellipse at 30% 50%, rgba(210,16,52,0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.06) 0%, transparent 50%);
+      animation: heroGlow 12s ease-in-out infinite alternate;
+    }
+    @keyframes heroGlow {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(2%, -2%) rotate(3deg); }
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold-light);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 24px; border-radius: 30px;
+      margin-bottom: 30px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem; font-weight: 800;
+      color: white; line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; color: rgba(255,255,255,0.7);
+      font-style: italic; margin-bottom: 40px;
+    }
+    .hero-details {
+      display: flex; gap: 40px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 45px;
+    }
+    .hero-detail {
+      color: rgba(255,255,255,0.9); font-size: 1rem;
+    }
+    .hero-detail strong {
+      display: block; font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--gold); margin-bottom: 6px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--red-haiti);
+      color: white; font-weight: 600; font-size: 1rem;
+      padding: 16px 40px; border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(210,16,52,0.4);
+    }
+    .hero-cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(210,16,52,0.5);
+    }
+    .scroll-indicator {
+      position: absolute; bottom: 30px; left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.4); font-size: 0.75rem;
+      letter-spacing: 2px; text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 20px; }
+    .section-inner { max-width: 960px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--red-haiti);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; font-weight: 700;
+      color: var(--blue-deep); margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .section-intro {
+      font-size: 1.1rem; line-height: 1.8;
+      color: var(--text-mid); max-width: 700px;
+      margin-bottom: 50px;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: white; }
+    .objectives-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px; margin-top: 40px;
+    }
+    .objective-card {
+      background: var(--cream);
+      border-radius: 12px; padding: 30px;
+      border-left: 4px solid var(--blue-deep);
+      transition: transform 0.2s;
+    }
+    .objective-card:hover { transform: translateY(-3px); }
+    .objective-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; color: var(--blue-deep);
+      margin-bottom: 10px;
+    }
+    .objective-card p {
+      font-size: 0.92rem; line-height: 1.7; color: var(--text-mid);
+    }
+
+    /* ── GUEST OF HONOR ── */
+    .honor { background: linear-gradient(160deg, #000c3a, var(--blue-deep)); color: white; }
+    .honor .section-label { color: var(--gold); }
+    .honor .section-title { color: white; }
+    .honor-content {
+      display: grid; grid-template-columns: 280px 1fr;
+      gap: 50px; align-items: start;
+    }
+    .honor-photo {
+      width: 280px; height: 340px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.05));
+      border-radius: 16px; border: 2px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; color: rgba(201,168,76,0.4);
+    }
+    .honor-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; margin-bottom: 6px;
+    }
+    .honor-info .role {
+      font-size: 1.1rem; color: var(--gold);
+      font-weight: 600; margin-bottom: 20px;
+    }
+    .honor-info p {
+      font-size: 1rem; line-height: 1.8;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── HOST ── */
+    .host-section {
+      background: var(--cream);
+      border-top: 1px solid #e8e2d9;
+    }
+    .host-card {
+      background: white;
+      border-radius: 16px; padding: 50px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 40px; align-items: start;
+    }
+    .host-avatar {
+      width: 200px; height: 200px;
+      background: linear-gradient(135deg, var(--blue-deep), var(--blue-light));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; color: rgba(255,255,255,0.5);
+    }
+    .host-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: var(--blue-deep);
+      margin-bottom: 6px;
+    }
+    .host-info .role {
+      font-size: 0.95rem; color: var(--red-haiti);
+      font-weight: 600; margin-bottom: 16px;
+    }
+    .host-info p {
+      font-size: 0.95rem; line-height: 1.8; color: var(--text-mid);
+    }
+
+    /* ── SPEAKERS ── */
+    .speakers { background: white; }
+    .speakers-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .speaker-card {
+      background: var(--cream); border-radius: 12px;
+      padding: 28px; transition: transform 0.2s;
+      border: 1px solid transparent;
+    }
+    .speaker-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0,32,159,0.1);
+    }
+    .speaker-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; color: var(--blue-deep);
+      margin-bottom: 4px;
+    }
+    .speaker-role {
+      font-size: 0.82rem; color: var(--red-haiti);
+      font-weight: 600; margin-bottom: 8px;
+    }
+    .speaker-org {
+      font-size: 0.82rem; color: var(--text-light);
+    }
+
+    /* ── PROGRAMME ── */
+    .programme { background: var(--cream); }
+    .timeline { position: relative; padding-left: 40px; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 14px; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, var(--blue-deep), var(--red-haiti));
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 40px;
+      background: white; border-radius: 12px;
+      padding: 28px 30px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .timeline-item::before {
+      content: ''; position: absolute;
+      left: -34px; top: 32px;
+      width: 14px; height: 14px;
+      background: var(--blue-deep); border-radius: 50%;
+      border: 3px solid var(--cream);
+    }
+    .timeline-item:nth-child(even)::before { background: var(--red-haiti); }
+    .timeline-time {
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--gold); letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 8px;
+      background: rgba(201,168,76,0.1);
+      display: inline-block; padding: 3px 12px;
+      border-radius: 4px;
+    }
+    .timeline-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; color: var(--blue-deep);
+      margin-bottom: 10px;
+    }
+    .timeline-desc {
+      font-size: 0.92rem; line-height: 1.7; color: var(--text-mid);
+    }
+    .timeline-desc ul {
+      list-style: none; padding: 0; margin-top: 8px;
+    }
+    .timeline-desc li {
+      padding: 4px 0 4px 18px; position: relative;
+    }
+    .timeline-desc li::before {
+      content: ''; position: absolute;
+      left: 0; top: 12px;
+      width: 6px; height: 6px;
+      background: var(--gold); border-radius: 50%;
+    }
+
+    /* ── CULTURAL ── */
+    .cultural {
+      background: linear-gradient(160deg, #1a0a0a, #2a0a15, #0a0a2a);
+      color: white;
+    }
+    .cultural .section-label { color: var(--gold); }
+    .cultural .section-title { color: white; }
+    .cultural-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px; margin-top: 40px;
+    }
+    .cultural-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 30px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .cultural-card:hover { background: rgba(255,255,255,0.08); }
+    .cultural-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .cultural-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; margin-bottom: 8px;
+    }
+    .cultural-card p {
+      font-size: 0.88rem; color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    /* ── AUDIENCE ── */
+    .audience { background: white; }
+    .audience-tags {
+      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px;
+    }
+    .audience-tag {
+      background: var(--cream);
+      border: 1px solid #e0dcd4;
+      border-radius: 30px; padding: 12px 24px;
+      font-size: 0.92rem; font-weight: 500;
+      color: var(--blue-deep);
+      transition: all 0.2s;
+    }
+    .audience-tag:hover {
+      background: var(--blue-deep); color: white;
+      border-color: var(--blue-deep);
+    }
+
+    /* ── PARTNERS ── */
+    .partners {
+      background: var(--cream);
+      text-align: center;
+    }
+    .partner-logos {
+      display: flex; gap: 40px; justify-content: center;
+      flex-wrap: wrap; margin-top: 40px;
+    }
+    .partner-item {
+      background: white; border-radius: 12px;
+      padding: 24px 36px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; color: var(--blue-deep);
+      font-weight: 600;
+    }
+
+    /* ── QUOTE ── */
+    .quote-section {
+      background: var(--blue-deep);
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-style: italic;
+      color: white; max-width: 700px;
+      margin: 0 auto; line-height: 1.6;
+    }
+    .quote-divider {
+      width: 60px; height: 2px;
+      background: var(--gold);
+      margin: 30px auto 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0a1a;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 50px 20px;
+    }
+    footer h3 {
+      font-family: 'Playfair Display', serif;
+      color: white; font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+    footer p { font-size: 0.9rem; line-height: 1.8; margin-bottom: 6px; }
+    .footer-flag {
+      display: inline-block; margin-top: 24px;
+      font-size: 0.8rem; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+    }
+    .footer-flag span { font-size: 1.2rem; vertical-align: middle; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: rgba(0,32,159,0.98);
+        flex-direction: column; padding: 20px;
+        gap: 4px;
+      }
+      .nav-links.open { display: flex; }
+      .mobile-toggle { display: block; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-sub { font-size: 1.1rem; }
+      .hero-details { gap: 20px; }
+      .honor-content { grid-template-columns: 1fr; }
+      .honor-photo { width: 200px; height: 240px; margin: 0 auto; }
+      .host-card { grid-template-columns: 1fr; text-align: center; }
+      .host-avatar { margin: 0 auto; width: 150px; height: 150px; font-size: 3rem; }
+      .section-title { font-size: 1.8rem; }
+      section { padding: 70px 20px; }
+      .timeline { padding-left: 30px; }
+      .timeline::before { left: 9px; }
+      .timeline-item::before { left: -28px; }
+      .timeline-item { padding: 22px; }
+      .quote-text { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">ICHR 2026</div>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#about">À Propos</a>
+      <a href="#honor">Invité d'Honneur</a>
+      <a href="#speakers">Intervenants</a>
+      <a href="#programme">Programme</a>
+      <a href="#culture">Culture</a>
+      <a href="#contact" class="nav-cta">Réserver</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">Forum International &middot; Boston 2026</div>
+    <h1>Innovations Chrétiennes pour une <span>Haïti Restaurée</span></h1>
+    <p class="hero-sub">&laquo; Ensemble, reconstruisons Haïti par la foi, le savoir et le leadership. &raquo;</p>
+    <div class="hero-details">
+      <div class="hero-detail">
+        <strong>Date</strong>
+        10 Mai 2026
+      </div>
+      <div class="hero-detail">
+        <strong>Heure</strong>
+        14h00 &ndash; 21h00
+      </div>
+      <div class="hero-detail">
+        <strong>Lieu</strong>
+        NJEBC, Randolph, MA
+      </div>
+    </div>
+    <a href="#programme" class="hero-cta">Découvrir le Programme</a>
+  </div>
+  <div class="scroll-indicator">&#x25BC; Défiler</div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="section-label">Présentation</div>
+    <h2 class="section-title">Forum International de l'Éducation &amp; Cérémonie de Jubilé</h2>
+    <p class="section-intro">
+      Une rencontre historique des leaders haïtiens en Nouvelle-Angleterre. Cette plateforme unique rassemble l'Église, l'Académie et la Diaspora pour célébrer la foi, le savoir et le leadership au service d'Haïti.
+    </p>
+    <div class="objectives-grid">
+      <div class="objective-card">
+        <h3>Accueil Officiel</h3>
+        <p>Organiser un accueil officiel du Ministre de l'Éducation d'Haïti et renforcer les liens entre les gouvernements et la diaspora.</p>
+      </div>
+      <div class="objective-card">
+        <h3>Liens Académiques</h3>
+        <p>Renforcer les liens académiques de nos leaders évangéliques et favoriser la coopération internationale en éducation.</p>
+      </div>
+      <div class="objective-card">
+        <h3>Jubilé Historique</h3>
+        <p>Célébrer le Programme du Jubilé et reconnaître les réalisations institutionnelles de la communauté haïtienne.</p>
+      </div>
+      <div class="objective-card">
+        <h3>Doctorats Honoris Causa</h3>
+        <p>Décerner des Doctorats Honoris Causa à des pasteurs et des personnalités distinguées pour leur contribution exceptionnelle.</p>
+      </div>
+      <div class="objective-card">
+        <h3>Laboratoire Jean Price-Mars</h3>
+        <p>Lancer le Laboratoire d'Études Haïtiennes avec des axes de recherche en histoire, anthropologie, éducation et diaspora.</p>
+      </div>
+      <div class="objective-card">
+        <h3>Réseautage de Haut Niveau</h3>
+        <p>Connecter les leaders haïtiens de l'Église, de l'Académie et de la Diaspora pour un impact social durable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ GUEST OF HONOR ═══════════ -->
+<section class="honor" id="honor">
+  <div class="section-inner">
+    <div class="section-label">Invité d'Honneur</div>
+    <h2 class="section-title">Rev. Vijonet Demero</h2>
+    <div class="honor-content">
+      <div class="honor-photo">&#9733;</div>
+      <div class="honor-info">
+        <h3>Ministre de l'Éducation d'Haïti</h3>
+        <p class="role">Expert international en leadership, cognition et éducation</p>
+        <p>
+          Le Révérend Vijonet Demero est un expert reconnu en leadership, cognition et apprentissage à l'Institut Universitaire de Formation des Cadres (INUFOCAD). Il est membre du LangSE, chercheur associé au Projet Science Ouverte en Haïti et en Afrique Francophone de l'Université Laval, et membre du projet GIECLAT.
+        </p>
+        <p style="margin-top: 16px;">
+          Sa présence en tant qu'invité d'honneur témoigne de l'engagement continu envers la coopération internationale et le renforcement des liens entre Haïti, la France et les États-Unis dans le domaine de l'éducation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOST ═══════════ -->
+<section class="host-section">
+  <div class="section-inner">
+    <div class="section-label">Hôte Principal</div>
+    <h2 class="section-title">Dr. Nesly Metayer</h2>
+    <div class="host-card">
+      <div class="host-avatar">NM</div>
+      <div class="host-info">
+        <h3>Dr. Nesly Metayer</h3>
+        <p class="role">Stratège en développement organisationnel &amp; leader engagé</p>
+        <p>
+          Nesly Metayer est un stratège en développement organisationnel, spécialiste de l'administration publique et leader confessionnel dédié à l'avancement de l'équité, du leadership et de la transformation communautaire au sein de la diaspora africaine et caribéenne.
+        </p>
+        <p style="margin-top: 12px;">
+          Fort de plus de deux décennies d'expérience en gestion d'organisations à but non lucratif, santé publique et conseil organisationnel, il est le fondateur d'EquiLead Consulting Group et chercheur principal au Moakley Center for Public Management de l'Université Suffolk, où il contribue au développement du leadership et à l'innovation en gouvernance.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SPEAKERS ═══════════ -->
+<section class="speakers" id="speakers">
+  <div class="section-inner">
+    <div class="section-label">Intervenants &amp; Leaders</div>
+    <h2 class="section-title">Des voix influentes de la diaspora</h2>
+    <p class="section-intro">
+      Des leaders religieux, académiques et communautaires unis pour l'avenir d'Haïti.
+    </p>
+
+    <div style="margin-bottom: 16px; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--blue-deep); font-weight: 600;">Conférenciers Principaux</div>
+    <div class="speakers-grid" style="margin-bottom: 40px;">
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Calixte Fleuridor</div>
+        <div class="speaker-role">Conférencier</div>
+        <div class="speaker-org">Segment du Jubilé</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Dr. Jean Abed Alexandre</div>
+        <div class="speaker-role">Conférencier</div>
+        <div class="speaker-org">Lancement du Laboratoire Jean Price-Mars</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 16px; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--blue-deep); font-weight: 600;">Association des Églises de la Nouvelle-Angleterre</div>
+    <div class="speakers-grid" style="margin-bottom: 40px;">
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Dr. Dieudonne Raymond</div>
+        <div class="speaker-role">Président de la Conférence</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Dr. Lucien Myrtil</div>
+        <div class="speaker-role">Président d'Honneur</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Dr. Paul Daniel</div>
+        <div class="speaker-role">Président de la Conférence</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Dr. Thomas Saint Louis</div>
+        <div class="speaker-role">Président d'Honneur</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Dr. Eno Mondesir</div>
+        <div class="speaker-role">Président d'Honneur de Siège</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Bishop Nicolas Homicil</div>
+        <div class="speaker-role">Président d'Honneur</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Solini Vedrine</div>
+        <div class="speaker-role">Président d'Honneur</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Dr. Othon Noel</div>
+        <div class="speaker-role">Président d'Honneur</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Dr. Daniel Auguste</div>
+        <div class="speaker-role">Président de Siège</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 16px; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--blue-deep); font-weight: 600;">Conseil des Pasteurs</div>
+    <div class="speakers-grid">
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Marcel Victor</div>
+        <div class="speaker-role">Président de la Conférence</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Kiki Fleurissaint</div>
+        <div class="speaker-role">Conseil des Pasteurs</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-name">Rev. Dr. Ricardo T. Bonacchi</div>
+        <div class="speaker-role">Président d'Honneur de Siège</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROGRAMME ═══════════ -->
+<section class="programme" id="programme">
+  <div class="section-inner">
+    <div class="section-label">Programme Officiel</div>
+    <h2 class="section-title">Déroulement de la Journée</h2>
+    <p class="section-intro">
+      Une journée riche en célébrations spirituelles, académiques et culturelles.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">14h00</div>
+        <h3 class="timeline-title">Cérémonie de Prières et d'Adoration</h3>
+        <div class="timeline-desc">
+          <ul>
+            <li>Discours d'ouverture par le Président de l'Association des Églises de la Nouvelle-Angleterre</li>
+            <li>Hymnes nationaux (États-Unis / Haïti)</li>
+            <li>Mot de bienvenue de l'institution hôte</li>
+            <li>Prière d'ouverture</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">15h00</div>
+        <h3 class="timeline-title">Allocution Ministérielle</h3>
+        <div class="timeline-desc">
+          <ul>
+            <li>Discours du Ministre de l'Éducation, Rev. Vijonet Demero</li>
+            <li>Thèmes : coopération internationale, anglophonie, éducation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">16h00</div>
+        <h3 class="timeline-title">Segment du Jubilé</h3>
+        <div class="timeline-desc">
+          <ul>
+            <li>Présentation historique</li>
+            <li>Reconnaissance des réalisations institutionnelles</li>
+            <li>Remises de distinctions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">17h00</div>
+        <h3 class="timeline-title">Cérémonie de Doctorats Honoris Causa</h3>
+        <div class="timeline-desc">
+          <ul>
+            <li>Présentation des candidats</li>
+            <li>Lecture des citations</li>
+            <li>Remise des diplômes et insignes</li>
+            <li>Discours des récipiendaires</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">18h00</div>
+        <h3 class="timeline-title">Lancement du Laboratoire d'Études Haïtiennes Jean Price-Mars</h3>
+        <div class="timeline-desc">
+          <ul>
+            <li>Présentation de la vision et de la mission par Dr. Jean Abed Alexandre</li>
+            <li>Faculté de Psychologie</li>
+            <li>Annonce des partenariats</li>
+            <li>Axes de recherche : histoire, anthropologie, éducation, diaspora</li>
+            <li>Cérémonie officielle d'inauguration</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">19h00</div>
+        <h3 class="timeline-title">Programme Culturel</h3>
+        <div class="timeline-desc">
+          <ul>
+            <li>Présentation de la culture haïtienne (TLCC / HAAM)</li>
+            <li>Musique, danse et poésie</li>
+            <li>Exposition de peintures</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">20h00</div>
+        <h3 class="timeline-title">Réception et Réseautage</h3>
+        <div class="timeline-desc">
+          <ul>
+            <li>Réseautage de haut niveau</li>
+            <li>Échanges entre leaders, professionnels et organisations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CULTURAL ═══════════ -->
+<section class="cultural" id="culture">
+  <div class="section-inner">
+    <div class="section-label">Patrimoine &amp; Culture</div>
+    <h2 class="section-title">Célébrons la Culture Haïtienne</h2>
+    <div class="cultural-grid">
+      <div class="cultural-card">
+        <div class="cultural-icon">&#127912;</div>
+        <h3>Exposition d'Art</h3>
+        <p>Exposition de peintures en partenariat avec HAAM (Haitian American Artist Movement)</p>
+      </div>
+      <div class="cultural-card">
+        <div class="cultural-icon">&#127925;</div>
+        <h3>Musique &amp; Danse</h3>
+        <p>Performances musicales et danse traditionnelle célébrant le riche patrimoine haïtien</p>
+      </div>
+      <div class="cultural-card">
+        <div class="cultural-icon">&#128214;</div>
+        <h3>Poésie</h3>
+        <p>Lectures poétiques honorant la tradition littéraire haïtienne</p>
+      </div>
+      <div class="cultural-card">
+        <div class="cultural-icon">&#129309;</div>
+        <h3>Réseautage</h3>
+        <p>Rencontres et échanges entre professionnels, leaders et organisations de la diaspora</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ AUDIENCE ═══════════ -->
+<section class="audience" id="audience">
+  <div class="section-inner">
+    <div class="section-label">Public Cible</div>
+    <h2 class="section-title">Qui est invité ?</h2>
+    <p class="section-intro">
+      Cet événement est ouvert à toute personne engagée pour l'avenir d'Haïti.
+    </p>
+    <div class="audience-tags">
+      <span class="audience-tag">Leaders Religieux &amp; Pasteurs</span>
+      <span class="audience-tag">Professionnels &amp; Entrepreneurs Haïtiens</span>
+      <span class="audience-tag">Étudiants &amp; Chercheurs</span>
+      <span class="audience-tag">Organisations de la Diaspora</span>
+      <span class="audience-tag">Représentants Gouvernementaux</span>
+      <span class="audience-tag">Consulat de Boston</span>
+      <span class="audience-tag">Personnalités de Boston</span>
+      <span class="audience-tag">Médias</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PARTNERS ═══════════ -->
+<section class="partners">
+  <div class="section-inner">
+    <div class="section-label">Partenaires</div>
+    <h2 class="section-title">En Partenariat Avec</h2>
+    <div class="partner-logos">
+      <div class="partner-item">HAU / TLCC<br><span style="font-family: Inter, sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--text-light);">Toussaint Louverture Cultural Center</span></div>
+      <div class="partner-item">HAAM<br><span style="font-family: Inter, sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--text-light);">Haitian American Artist Movement</span></div>
+      <div class="partner-item">INUFOCAD<br><span style="font-family: Inter, sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--text-light);">Institut Universitaire de Formation des Cadres</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ QUOTE ═══════════ -->
+<div class="quote-section">
+  <p class="quote-text">&laquo; Ensemble, reconstruisons Haïti par la foi, le savoir et le leadership. &raquo;</p>
+  <div class="quote-divider"></div>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer id="contact">
+  <div class="section-inner">
+    <h3>Innovations Chrétiennes pour une Haïti Restaurée</h3>
+    <p>10 Mai 2026 &middot; 14h00 &ndash; 21h00</p>
+    <p>NJEBC, Randolph, Massachusetts</p>
+    <p style="margin-top: 20px; color: rgba(255,255,255,0.4); font-size: 0.85rem;">
+      Places limitées &mdash; Réservez votre place et partagez avec votre réseau.
+    </p>
+    <p style="margin-top: 8px; color: rgba(255,255,255,0.4); font-size: 0.85rem;">
+      Haïti a besoin de leaders unis. Cette rencontre peut marquer un tournant.
+    </p>
+    <div class="footer-flag">
+      <span>&#127469;&#127481;</span> &nbsp; Foi &middot; Savoir &middot; Leadership
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.objective-card, .speaker-card, .timeline-item, .cultural-card, .audience-tag, .partner-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
