@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Event Program</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #2c2c2c; background: #f9f7f4; }
+
+    header {
+      background: linear-gradient(135deg, #1a3a5c, #2e6b9e);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 50px;
+    }
+    header h1 { font-size: 2.4rem; margin-bottom: 10px; letter-spacing: 1px; }
+    header p { font-size: 1.1rem; opacity: 0.9; }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .card h2 {
+      font-size: 1.3rem;
+      color: #1a3a5c;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #e8e2d9;
+      padding-bottom: 10px;
+    }
+    .card p, .card li { font-size: 1rem; line-height: 1.7; color: #444; }
+    .card ul { list-style: none; padding: 0; }
+    .card li { padding: 8px 0; border-bottom: 1px solid #f0ece6; }
+    .card li:last-child { border-bottom: none; }
+    .time { font-weight: 600; color: #2e6b9e; display: inline-block; width: 120px; }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.7rem; }
+      .time { display: block; margin-bottom: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Sample Event Program</h1>
+    <p>Saturday, May 10, 2026 -- Brooklyn, NY</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Event Details</h2>
+      <p>This is a sample page to test out GitHub Pages. If you can see this live on the internet, it works! Replace this content with the real event info later.</p>
+    </div>
+
+    <div class="card">
+      <h2>Schedule</h2>
+      <ul>
+        <li><span class="time">9:00 AM</span> Doors Open / Registration</li>
+        <li><span class="time">10:00 AM</span> Opening Prayer and Welcome</li>
+        <li><span class="time">11:00 AM</span> Guest Speaker</li>
+        <li><span class="time">12:30 PM</span> Lunch Break</li>
+        <li><span class="time">2:00 PM</span> Worship Session</li>
+        <li><span class="time">3:30 PM</span> Closing Remarks</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Location</h2>
+      <p>123 Example Street, Brooklyn, NY 11201</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Sample Event Program 2026</p>
+  </footer>
+
+</body>
+</html>
